@@ -16,9 +16,11 @@
     <!--Nav Bar-->
     <nav class="navbar">
         <div class="navbar-center">
-            <span class="nav-icon">
-                <i class="fas fa-bars"></i>
-            </span>
+            <div class="option-btn" >
+                <span class="option-icon nav-icon">
+                    <i class="fas fa-bars"></i>
+                </span>
+            </div>
             <img src="./images/logo.svg" alt="Store Logo">
             <div class="cart-btn">
                 <span class="nav-icon">
@@ -34,7 +36,7 @@
     <header class="hero">
         <div class="banner">
             <h1 class="banner-title">Furniture Collection</h1>
-            <button class="banner-btn">Shop Now</button>
+        <a href="categories.html" target="_parent"> <button class="banner-btn">Shop Now</button></a>
         </div>
     </header>
     <!--End of Hero-->
@@ -43,7 +45,7 @@
 
     <section class="products">
         <div class="section-title">
-            <h2>Our Products</h2>
+            <h2>Featured Products</h2>
         </div>
         <div class="products-center">
         </div>
@@ -78,6 +80,41 @@
     </div>
 
     <!--End of Cart-->
+
+    <!--option-->
+    
+    <div class="option-overlay">
+        <div class="option">
+            <span class="close-option">
+                <i class="fas fa-window-close">
+                </i>
+            </span>
+            <div>
+                <ul class="option-items">
+                    <li><a class="active" href="index.html">Home</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.html">About</a></li>
+
+                </ul>
+                <i class="fa fa-globe fa-lg" aria-hidden="true"><a href="language.JSON"></a></i>
+            </div>
+            <div class="option-content">
+                <!--option item-->
+    
+                <!-- <div class="option-item">
+                        
+                    </div> -->
+    
+                <!--End of option item-->
+    
+            </div>
+            <div class="option-footer">
+            </div>
+        </div>
+    </div>
+    
+    <!--End of option-->
 
 
   <script src="app.js"></script>  

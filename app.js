@@ -30,6 +30,13 @@ const cartTotal = document.querySelector('.cart-total')
 const cartContent = document.querySelector('.cart-content')
 const  ProductsDOM = document.querySelector('.products-center')
 
+
+const optionBtn = document.querySelector('.option-btn')
+const closeOptionBtn = document.querySelector('.close-option')
+const optionDOM = document.querySelector('.option')
+const optionOverlay = document.querySelector('.option-overlay')
+const optionContent = document.querySelector('.option-content')
+
 let cart = [];
 
 //buttons
@@ -71,6 +78,11 @@ class UI{
                         </i>
                     </button>
                 </div>
+                <i class="fas fa-star"></i> 
+                <i class="fas fa-star"></i> 
+                <i class="fas fa-star"></i> 
+                <i class="fas fa-star"></i> 
+                <i class="fas fa-star"></i> 
                 <h3>${product.title}</h3>
                 <h4>$${product.price}</h4>
             </article>
@@ -86,8 +98,9 @@ class UI{
             let id = button.dataset.id;
             let inCart = cart.find(item => item.id === id);
             if(inCart){
-                button.innerText= "In Cart";
                 button.disabled = true
+                button.innerText= "In Cart";
+                
             }
                 button.addEventListener('click', (e) =>{
                     e.target.disabled = true
@@ -107,7 +120,7 @@ class UI{
                     //display cart items
                     this.addCartItem(cartItem)
                     //show the cart
-                    this.showCart();
+                    // this.showCart();
                 })
         });
     }
@@ -147,12 +160,20 @@ class UI{
         cartDOM.classList.add('showCart')
     }
 
+    showOption(){
+        optionOverlay.classList.add('transparentBcg')
+        optionDOM.classList.add('showOption')
+    }
+
     setupAPP(){
         cart = Storage.getCart();   
         this.setCartValues(cart);
         this.populate(cart);
         cartBtn.addEventListener('click',this.showCart);
         closeCartBtn.addEventListener('click', this.hideCart)
+
+        optionBtn.addEventListener('click',this.showOption);
+        closeOptionBtn.addEventListener('click', this.hideOption)
     }
 
     populate(cart){
@@ -163,6 +184,13 @@ class UI{
         cartOverlay.classList.remove('transparentBcg')
         cartDOM.classList.remove('showCart')
     }
+
+    hideOption(){
+        optionOverlay.classList.remove('transparentBcg')
+        optionDOM.classList.remove('showOption')
+    }
+
+
     cartLogic(){
         clearCartBtn.addEventListener('click',()=>{
             this.clearCart()

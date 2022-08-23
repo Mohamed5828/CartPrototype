@@ -30,6 +30,7 @@ body {
     align-items: center;
     background: rgb(231, 226, 221);
     z-index: 1;
+    box-shadow: 0px 5px 15px rgba(255, 241, 224, 0.8);
 }
 
 .navbar-center {
@@ -50,7 +51,10 @@ body {
     position: relative;
     cursor: pointer;
 }
-
+.option-btn {
+    position: relative;
+    cursor: pointer;
+}
 .cart-items {
     position: absolute;
     top: -8px;
@@ -133,6 +137,7 @@ body {
 .img-container {
     position: relative;
     overflow: hidden;
+    border-radius: 10px;
 }
 
 .bag-btn {
@@ -172,13 +177,19 @@ body {
 .img-container:hover .product-img {
     opacity: 0.5;
 }
-
+.product{
+    padding: 10px 12px;
+    border: 2.5px solid  #cce7d0;
+    border-radius: 10px;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+}
 .product h3 {
     text-transform: capitalize;
     font-size: 1.1rem;
     margin-top: 1rem;
     letter-spacing: var(--mainSpacing);
     text-align: center;
+    
 }
 
 .product h4 {
@@ -188,8 +199,117 @@ body {
     text-align: center;
 }
 
-/* ---------------End of Products ---------------- */
+.fa-star{
+    margin: 10px 0px;
+    color: var(--primaryColor);
+}
 
+/* ---------------End of Products ---------------- */
+/* --------------- option --------------------- */
+
+.option-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: var(--mainTransition);
+    background: rgb(240, 157, 81, 0.5);
+    z-index: 2;
+    visibility: hidden;
+}
+
+.option {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 25%;
+    height: 100%;
+    z-index: 3;
+    background: rgb(231, 226, 221);
+    padding: 1.5rem;
+    transition: var(--mainTransition);
+    transform: translateX(-100%);
+}
+
+.showOption {
+    transform: translateX(0);
+}
+.close-option {
+    font-size: 1.7rem;
+    cursor: pointer;
+    position: relative;
+    top: 0px;
+    left: 250px;
+}
+
+.option-items {
+    text-align: left;
+    font-size: 2rem;
+    margin-bottom: 5rem;
+    text-transform: capitalize;
+    letter-spacing: var(--mainSpacing);
+    /* position: relative; */
+    left:  0%;
+    list-style: none;
+    padding-top: 50px;
+}
+
+.option-items a{
+    color: var(--primaryColor);
+    text-decoration: none;
+    font-style: oblique;
+    font-weight: 520;
+    transition: 0.25s ease;
+    position: relative;
+}
+.option-items li a.active{
+    color: #e48b38;
+    text-shadow:0px 1px 1px #f09d51;
+    pointer-events: none;
+}
+.option-items li a:hover {
+    color: #e48b38;
+    text-shadow: 0px 1px 1px #f09d51;
+}
+
+.option-items li a.active::after{
+    content:"";
+    width: 50%;
+    height: 2.5px;
+    background: #e48b38;
+    position: absolute;
+    bottom: -4px;
+    left: 10px;
+    pointer-events: none;
+}
+
+.option-items li a:hover::after {
+    content: "";
+    width: 50%;
+    height: 2.5px;
+    background: #e48b38;
+    position: absolute;
+    bottom: -4px;
+    left: 10px;
+}
+.option-items li{
+    margin-bottom: 50px;
+}
+
+.fa-globe{
+    color: #f09d51;
+    position: relative;
+
+    left: 80%;
+    bottom: -90px;
+}
+.fa-globe:hover {
+    color: #e48b38;
+}
+
+
+/* --------------- End of option -------------- */
 /* --------------- Cart ---------------- */
 .cart-overlay {
     position: fixed;
@@ -298,3 +418,4 @@ body {
 }
 
 /* --------------- End of Cart ---------------- */
+
