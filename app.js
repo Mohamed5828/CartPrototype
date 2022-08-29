@@ -1,25 +1,3 @@
-// const UICtrl = (function(){
-//     //Object Contains the classes
-//     const UISelectors = {
-//         cartBtn: '.cart-btn',
-//         cloaseCartBtn: '.close-cart',
-//         clearCartBtn: '.clear-cart',
-//         cartDOM: '.cart',
-//         cartOverlay: '.cart-overlay',
-//         cartItems: '.cart-items',
-//         cartTotal: '.cart-total',
-//         cartContent: '.cart-content',
-//         ProductsDOM: '.products-center'
-//     }
-//     let cart = [];
-
-//     // Public Methods
-//     return {
-
-
-//     }
-// })
-
 const cartBtn = document.querySelector('.cart-btn')
 const closeCartBtn = document.querySelector('.close-cart')
 const clearCartBtn = document.querySelector('.clear-cart')
@@ -37,8 +15,9 @@ const optionDOM = document.querySelector('.option')
 const optionOverlay = document.querySelector('.option-overlay')
 const optionContent = document.querySelector('.option-content')
 
-let cart = [];
 
+let cart = [];
+let allProductsId =[];
 //buttons
 let buttonsDOM= [];
 
@@ -72,11 +51,6 @@ class UI{
             <article class="product">
                 <div class="img-container">
                     <img src=${product.image} alt="Product" class ="product-img">
-                    <button class="bag-btn" data-id=${product.id}>
-                        <i class="fas fa-shopping-cart">
-                            Add To Cart
-                        </i>
-                    </button>
                 </div>
                 <i class="fas fa-star"></i> 
                 <i class="fas fa-star"></i> 
@@ -85,8 +59,14 @@ class UI{
                 <i class="fas fa-star"></i> 
                 <h3>${product.title}</h3>
                 <h4>$${product.price}</h4>
+                <button class="bag-btn" data-id=${product.id}>
+                        <i class="fa fa-shopping-cart">
+                             Add To Cart
+                        </i>
+                </button>
             </article>
             `;
+        allProductsId += product.id;
         });
         ProductsDOM.innerHTML = result;
     }
@@ -99,12 +79,12 @@ class UI{
             let inCart = cart.find(item => item.id === id);
             if(inCart){
                 button.disabled = true
-                button.innerText= "In Cart";
+                button.innerText= "IN CART";
                 
             }
                 button.addEventListener('click', (e) =>{
                     e.target.disabled = true
-                    e.target.innerText = "In Cart"
+                    e.target.innerText = "IN CART"
                     
 
                     //get product from products
@@ -172,8 +152,11 @@ class UI{
         cartBtn.addEventListener('click',this.showCart);
         closeCartBtn.addEventListener('click', this.hideCart)
 
+
         optionBtn.addEventListener('click',this.showOption);
         closeOptionBtn.addEventListener('click', this.hideOption)
+
+        close
     }
 
     populate(cart){
@@ -253,9 +236,92 @@ class UI{
     getSingleButton(id){
         return buttonsDOM.find(button => button.dataset.id === id)
     }
+    // SliderItems(id){
+    //     let sliderImages = Array.from(document.querySelectorAll(`.product-img-${id}`));
+    //     let slidesCounter = sliderImages.length;
+    //     let currentSlide = 1;
+    //     let paginationElement = document.createElement('ul');
+    //     globalThis.currentSlide
+    //     paginationElement.setAttribute('id', 'pagination-ul');
+    //     //creat li based on slides length
+    //     for (let i =1 ; i <= slidesCounter ; i++){
+    //         //create the li
+    //     let paginationItem = document.createElement('li');
+    //         paginationItem.setAttribute(`data-index-${id}`, i);
+    //         paginationItem.classList.add(`data-index-${id}`)
+    //         paginationItem.appendChild(document.createTextNode(i));
+
+    //         //append item to the main ul list
+
+    //         paginationElement.appendChild(paginationItem)
+
+    //     }
+
+    //     //add the created ul element to the page
+    //     document.querySelector(`#indicators-${id}`).appendChild(paginationElement);
+    //     let paginationCreatedUl = document.getElementById('pagination-ul')
+
+    //     //get pagination element
+    //     let paginationBullets = Array.from(document.querySelectorAll('#pagination-ul li'));
+
+    //     //loop through all bullets
+    //     for(let i =0 ; i<paginationBullets.length ; i++){
+    //         paginationBullets[i].onclick = function (){
+    //             currentSlide = parseInt(this.getAttribute(`data-index-${id}`))
+    //             theChecker(id);
+    //     }
+    // }
+    //     theChecker(id);
+
+    //     //testing
+    //      // Create The Checker Function
+    // function theChecker(id) {
+    // // Remove All Active Classes
+    // removeAllActive(id);
+
+    // // Set Active Class On Current Slide
+    // sliderImages[currentSlide - 1].classList.add('active');
+
+    // // Set Active Class on Current Pagination Item
+    // paginationCreatedUl.children[currentSlide - 1].classList.add('active');
+
+    // }
+    // function removeAllActive(id){
+    //     sliderImages.forEach((img)=>{
+    //         if(img.classList.contains(`data-index-${id}`)){
+    //         img.classList.remove('active');
+    //         }
+    //     });
+    //     paginationBullets.forEach((bullet)=>{
+    //         if(bullet.classList.contains(`data-index-${id}`))
+    //         {
+    //         bullet.classList.remove('active');
+    //         }
+    //     });
+    // }
+
+
+    // }  
+
+    // ---------------replace this ---------//
+            //  <div class="img-container">
+            //         <div class="slider-container">
+            //             <img src=${product.image} alt="Product" class="product-img product-img-${product.id}">
+            //             <img src=${product.image} alt="Product" class="product-img product-img-${product.id}">
+            //             <img src=${product.image} alt="Product" class="product-img product-img-${product.id}">
+            //             <img src=${product.image} alt="Product" class="product-img product-img-${product.id}">
+            //             <img src=${product.image} alt="Product" class="product-img product-img-${product.id}">
+            //         </div>
+            //         <div class="slider-controls">
+            //             <span id="indicators-${product.id}" class="indicators">
+            //             </span>
+            //         </div>
+                    
+            //     </div>
+   
 }
 
-//Local Storage
+// Local Storage
 
 class Storage{
     static saveProducts(products){
@@ -290,5 +356,13 @@ document.addEventListener("DOMContentLoaded",()=>{
 }).then(()=>{
     ui.getBagButtons();
     ui.cartLogic()
+    // for (let i = 0 ; i < allProductsId.length ; i++){
+    //     ui.SliderItems(i)
+    // } 
+    // ui.SliderItems(1)
+    // ui.SliderItems(2)
+    // ui.SliderItems(3)
+
+
 });
 });
