@@ -15,9 +15,11 @@ const optionDOM = document.querySelector('.option')
 const optionOverlay = document.querySelector('.option-overlay')
 const optionContent = document.querySelector('.option-content')
 
-
 let cart = [];
 let allProductsId =[];
+// uncomment for hashmap linked list
+// let universalSliderImage = null
+
 //buttons
 let buttonsDOM= [];
 
@@ -32,7 +34,6 @@ async getProducts(){
             const {title,price} = item.fields;
             const {id} = item.sys
             const image = item.fields.image.fields.file.url;
-
             return{title,price,id,image}
         })
         return products
@@ -41,6 +42,70 @@ async getProducts(){
     }
 }
 }
+// // --------------------Hashmap With LinkedList ---------------------------//
+// class ListNode{
+//     constructor(data , next=null){
+//         this.data = data;
+//         this.next = next;
+//     }
+// }
+
+// class LinkedList{
+//     constructor(){
+//         this.root = null;
+//     }
+
+//     isEmpty(){
+//         return this.root === null
+//     }
+
+//     prepend(value){
+//         let node = new ListNode(value , this.root)
+//         this.root = node
+//     }
+// }
+
+// class HashMap{
+//     constructor(){
+//     this.buckets = new Array(8);
+//     for (let i = 0 ; i<this.buckets.length ; i++){
+//         this.buckets[i] = new LinkedList()
+//     }
+// }
+
+
+//     hashcode(key){
+//         let index = key[0].classList[1][12]
+//         return index - 1
+//     }
+
+//     hashvalue(key){
+//         let value = key[0].src
+//         return value;
+//     }
+//     put(key){
+//         let index = this.hashcode(key)
+//         let value = this.hashvalue(key)
+//         this.buckets[index].prepend({key , value})
+        
+//     }
+
+//     get(key){
+//         let index = this.hashcode(key)
+//         let list = this.buckets[index]
+
+//         let current = list.root
+//         while (current !== null){
+//             if (current.data.key === key){
+//                 return current.data.value
+//             }
+
+//             current = current.next
+//         }
+//     }
+
+// }
+// // --------------------Hashmap With LinkedList ---------------------------//
 
 //Displaying the Products
 class UI{
@@ -50,7 +115,8 @@ class UI{
             result += `
             <article class="product">
                 <div class="img-container">
-                    <img src=${product.image} alt="Product" class ="product-img">
+                        <img src=./images/product-2.jpeg alt="Product" class="product-img product-img-1 face">
+                        <img src=${product.image} alt="Product" class="product-img product-img-2 face">
                 </div>
                 <i class="fas fa-star"></i> 
                 <i class="fas fa-star"></i> 
@@ -61,7 +127,7 @@ class UI{
                 <h4>$${product.price}</h4>
                 <button class="bag-btn" data-id=${product.id}>
                         <i class="fa fa-shopping-cart">
-                             Add To Cart
+                            Add To Cart
                         </i>
                 </button>
             </article>
@@ -201,8 +267,8 @@ class UI{
                 let lowerAmount = event.target
                 let id = lowerAmount.dataset.id
                 let tempItem = cart.find(item =>item.id === id);
-                tempItem.amount --
-                if (tempItem > 0){
+                tempItem.amount --;
+                if (tempItem.amount > 0){
                     Storage.saveCart(cart)
                     this.setCartValues(cart)
                     lowerAmount.previousElementSibling.innerText =tempItem.amount;
@@ -236,89 +302,6 @@ class UI{
     getSingleButton(id){
         return buttonsDOM.find(button => button.dataset.id === id)
     }
-    // SliderItems(id){
-    //     let sliderImages = Array.from(document.querySelectorAll(`.product-img-${id}`));
-    //     let slidesCounter = sliderImages.length;
-    //     let currentSlide = 1;
-    //     let paginationElement = document.createElement('ul');
-    //     globalThis.currentSlide
-    //     paginationElement.setAttribute('id', 'pagination-ul');
-    //     //creat li based on slides length
-    //     for (let i =1 ; i <= slidesCounter ; i++){
-    //         //create the li
-    //     let paginationItem = document.createElement('li');
-    //         paginationItem.setAttribute(`data-index-${id}`, i);
-    //         paginationItem.classList.add(`data-index-${id}`)
-    //         paginationItem.appendChild(document.createTextNode(i));
-
-    //         //append item to the main ul list
-
-    //         paginationElement.appendChild(paginationItem)
-
-    //     }
-
-    //     //add the created ul element to the page
-    //     document.querySelector(`#indicators-${id}`).appendChild(paginationElement);
-    //     let paginationCreatedUl = document.getElementById('pagination-ul')
-
-    //     //get pagination element
-    //     let paginationBullets = Array.from(document.querySelectorAll('#pagination-ul li'));
-
-    //     //loop through all bullets
-    //     for(let i =0 ; i<paginationBullets.length ; i++){
-    //         paginationBullets[i].onclick = function (){
-    //             currentSlide = parseInt(this.getAttribute(`data-index-${id}`))
-    //             theChecker(id);
-    //     }
-    // }
-    //     theChecker(id);
-
-    //     //testing
-    //      // Create The Checker Function
-    // function theChecker(id) {
-    // // Remove All Active Classes
-    // removeAllActive(id);
-
-    // // Set Active Class On Current Slide
-    // sliderImages[currentSlide - 1].classList.add('active');
-
-    // // Set Active Class on Current Pagination Item
-    // paginationCreatedUl.children[currentSlide - 1].classList.add('active');
-
-    // }
-    // function removeAllActive(id){
-    //     sliderImages.forEach((img)=>{
-    //         if(img.classList.contains(`data-index-${id}`)){
-    //         img.classList.remove('active');
-    //         }
-    //     });
-    //     paginationBullets.forEach((bullet)=>{
-    //         if(bullet.classList.contains(`data-index-${id}`))
-    //         {
-    //         bullet.classList.remove('active');
-    //         }
-    //     });
-    // }
-
-
-    // }  
-
-    // ---------------replace this ---------//
-            //  <div class="img-container">
-            //         <div class="slider-container">
-            //             <img src=${product.image} alt="Product" class="product-img product-img-${product.id}">
-            //             <img src=${product.image} alt="Product" class="product-img product-img-${product.id}">
-            //             <img src=${product.image} alt="Product" class="product-img product-img-${product.id}">
-            //             <img src=${product.image} alt="Product" class="product-img product-img-${product.id}">
-            //             <img src=${product.image} alt="Product" class="product-img product-img-${product.id}">
-            //         </div>
-            //         <div class="slider-controls">
-            //             <span id="indicators-${product.id}" class="indicators">
-            //             </span>
-            //         </div>
-                    
-            //     </div>
-   
 }
 
 // Local Storage
@@ -356,13 +339,5 @@ document.addEventListener("DOMContentLoaded",()=>{
 }).then(()=>{
     ui.getBagButtons();
     ui.cartLogic()
-    // for (let i = 0 ; i < allProductsId.length ; i++){
-    //     ui.SliderItems(i)
-    // } 
-    // ui.SliderItems(1)
-    // ui.SliderItems(2)
-    // ui.SliderItems(3)
-
-
 });
 });
