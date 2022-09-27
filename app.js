@@ -17,8 +17,7 @@ const optionContent = document.querySelector('.option-content')
 
 let cart = [];
 let allProductsId =[];
-// uncomment for hashmap linked list
-// let universalSliderImage = null
+
 
 //buttons
 let buttonsDOM= [];
@@ -42,71 +41,6 @@ async getProducts(){
     }
 }
 }
-// // --------------------Hashmap With LinkedList ---------------------------//
-// class ListNode{
-//     constructor(data , next=null){
-//         this.data = data;
-//         this.next = next;
-//     }
-// }
-
-// class LinkedList{
-//     constructor(){
-//         this.root = null;
-//     }
-
-//     isEmpty(){
-//         return this.root === null
-//     }
-
-//     prepend(value){
-//         let node = new ListNode(value , this.root)
-//         this.root = node
-//     }
-// }
-
-// class HashMap{
-//     constructor(){
-//     this.buckets = new Array(8);
-//     for (let i = 0 ; i<this.buckets.length ; i++){
-//         this.buckets[i] = new LinkedList()
-//     }
-// }
-
-
-//     hashcode(key){
-//         let index = key[0].classList[1][12]
-//         return index - 1
-//     }
-
-//     hashvalue(key){
-//         let value = key[0].src
-//         return value;
-//     }
-//     put(key){
-//         let index = this.hashcode(key)
-//         let value = this.hashvalue(key)
-//         this.buckets[index].prepend({key , value})
-        
-//     }
-
-//     get(key){
-//         let index = this.hashcode(key)
-//         let list = this.buckets[index]
-
-//         let current = list.root
-//         while (current !== null){
-//             if (current.data.key === key){
-//                 return current.data.value
-//             }
-
-//             current = current.next
-//         }
-//     }
-
-// }
-// // --------------------Hashmap With LinkedList ---------------------------//
-
 //Displaying the Products
 class UI{
     displayProducts(products){
@@ -129,7 +63,11 @@ class UI{
                         <i class="fa fa-shopping-cart">
                             Add To Cart
                         </i>
-                </button>
+                        </button>
+                        <button class= "product-fav" data-id=${product.id}>
+                            <i class="fa fa-heart fa-lg" aria-hidden="true">
+                            </i>
+                        <button>
             </article>
             `;
         allProductsId += product.id;
@@ -201,6 +139,11 @@ class UI{
                     cartContent.appendChild(div);
     }
 
+    // showLocation(){
+    //     locationOverlay.classList.add('transparentBcg')
+    //     locationDOM.classList.add('showCart')
+    // }
+
     showCart(){
         cartOverlay.classList.add('transparentBcg')
         cartDOM.classList.add('showCart')
@@ -222,6 +165,9 @@ class UI{
         optionBtn.addEventListener('click',this.showOption);
         closeOptionBtn.addEventListener('click', this.hideOption)
 
+        // locationBtn.addEventListener('click',this.showLocation);
+        // closeLocationBtn.addEventListener('click', this.hideLocation)
+
         close
     }
 
@@ -238,6 +184,11 @@ class UI{
         optionOverlay.classList.remove('transparentBcg')
         optionDOM.classList.remove('showOption')
     }
+
+    //  hideLocation(){
+    //     locationOverlay.classList.remove('transparentBcg')
+    //     locationDOM.classList.remove('showLocation')
+    // }
 
 
     cartLogic(){

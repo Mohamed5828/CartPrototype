@@ -32,11 +32,11 @@ body {
     top: 0;
     height: 60px;
     width: 100%;
-    display: flex;
+    display: grid;
     align-items: center;
     background: rgb(231, 226, 221);
     z-index: 3;
-    box-shadow: 0px 5px 15px rgba(255, 241, 224, 0.8);
+    /* box-shadow: 0px 5px 15px rgba(255, 241, 224, 0.8); */
 }
 
 .navbar-center {
@@ -45,7 +45,7 @@ body {
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content:space-between;
     padding: 0 1.5rem;
 }
 
@@ -73,6 +73,132 @@ body {
     color: var(--mainWhite);
 }
 
+.search-box{
+    position: relative;
+    background: var(--primaryColor);
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+}
+
+.search-box ::selection ,
+.search-box-sm ::selection{
+    color: black;
+    background-color: #3297FD;
+}
+
+.search-btn{
+    float: right;
+    color: #2c1807;
+    width: 40px;
+    border-radius: 50%;
+    background: var(--primaryColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.search-txt{
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 1px 6px;
+    position: relative;
+    color: black;
+    font-size: 16px;
+    transition: var(--mainTransition);
+    width: 240px;
+}
+.icons{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.favorite{
+    padding: 0 0.5rem;
+    margin: 5px;
+}
+.favorite :hover ,
+.location :hover ,
+.cart-btn :hover ,
+.option-btn :hover{
+    opacity: 0.65;
+    transform: var(--mainTransition);
+}
+.location button{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0 0.5rem;
+    margin: 5px;
+
+}
+
+/*--------Search Bar for Small Screen--------*/
+.search-box-sm {
+    position: relative;
+    margin:  10px 15px;
+    background: var(--mainGrey);
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+}
+.search-btn-sm {
+    float: right;
+    color: #2c1807;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    position: absolute;
+    top: 2px;
+    right: 6px;
+}
+
+.search-txt-sm {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 1px 6px;
+    position: relative;
+    color: black;
+    font-size: 16px;
+    transition: var(--mainTransition);
+    width: 90%;
+}
+
+.location-sm button {
+    background: var(--mainWhite);
+    border: none;
+    cursor: pointer;
+    padding: 10px 100px 10px 10px;
+    margin: 5px 0px 0px;
+}
+.location-sm {
+    width: 100%;
+    border-bottom: 1px solid rgb(207, 207, 207);
+}
+.location-sm :hover {
+    background-color: var(--mainGrey);
+}
+
+@media screen and (min-width: 775px) {
+    .search-box-sm ,
+    .location-sm ,
+    .linebreak{
+        display: none;
+    }
+}
+@media screen and (max-width: 774px) {
+    .search-box ,
+    .location{
+    display:none;
+}
+}
 /* --------------- End of Navbar ---------------- */
 
 
@@ -198,6 +324,7 @@ body {
 }
 
 .product {
+    position: relative;
     padding: 10px 12px;
     border: 2.5px solid #cce7d0;
     border-radius: 10px;
@@ -223,6 +350,24 @@ body {
 .fa-star {
     margin: 10px 0px;
     color: var(--primaryColor);
+}
+
+.product-fav {
+    position: absolute;
+    bottom: 3%;
+    right: 8%;
+    padding: 7px;
+    border-radius: 50%;
+    background-color: #cce7d0;
+    color: whitesmoke;
+    cursor: pointer;
+    border: none;
+}
+.product-fav :hover{
+opacity: 0.6;
+}
+.product-fav :checked{
+        color: #bd2727;
 }
 
 @media screen and (max-width: 588px) and (min-width: 410px) {
