@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700");
+
+:root {
+  --primaryColor: #f09d51;
+  --mainWhite: #fff;
+  --mainBlack: #222;
+  --mainGrey: #ececec;
+  --mainSpacing: 0.1rem;
+  --mainTransition: all 0.25s linear;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::selection {
+  color: white;
+  background-color: var(--primaryColor);
+}
+
+body {
+  color: var(--mainBlack);
+  background: var(--mainWhite);
+  font-family: "Lato", sans-serif;
+}
+
+.hide-element {
+  display: none;
+}
+.fav-heading {
+  font-weight: bold;
+  font-size: 40px;
+  margin: 40px 51px 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(17, 16, 16);
+}
+
+/* --------------- no favorite ---------------- */
+.no-fav {
+  text-align: center;
+  margin-top: 60px;
+}
+.no-fav h4 {
+  font-weight: bold;
+  color: var(--primaryColor);
+  font-size: 24px;
+  margin: 7px;
+}
+
+.no-fav p {
+  color: gray;
+  margin-bottom: 15px;
+}
+.no-fav button {
+  margin: 15px 0 30px;
+  padding: 1rem 3rem;
+  text-transform: uppercase;
+  letter-spacing: var(--mainSpacing);
+  font-size: 1rem;
+  background: var(--primaryColor);
+  color: var(--mainBlack);
+  border: 1px solid var(--primaryColor);
+  transition: var(--mainTransition);
+  cursor: pointer;
+}
+.no-fav button:hover {
+  background: transparent;
+  color: var(--primaryColor);
+}
+/* --------------- End of no favorite ---------------- */
+
+/* ---------------  favorite ---------------- */
+.fav-products {
+  margin: 13px auto;
+  display: flex;
+  height: 238px;
+  width: 90%;
+  border-bottom: 1px solid rgb(207, 207, 207);
+  padding-bottom: 35px;
+}
+.fav-img-container {
+  width: 200px;
+  margin: 15px;
+}
+
+.fav-setting {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  height: 100%;
+}
+
+.fav-btns button {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 15px;
+  width: 15px;
+  padding: 20px;
+  border-radius: 50%;
+  background-color: var(--mainGrey);
+  border: none;
+  cursor: pointer;
+}
+
+.fav-btns {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.bag-btn {
+  align-items: center;
+  left: 0%;
+  translate: 0%;
+  line-height: 15px;
+}
+.fav-btns button:hover {
+  background-color: var(--primaryColor);
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 570px) {
+  .fav-products {
+    flex-wrap: wrap;
+    height: fit-content;
+  }
+  .fav-btns {
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 60%;
+  }
+  .fav-setting {
+    justify-content: space-evenly;
+    margin: 20px;
+  }
+}
+
+/* --------------- End of favorite ---------------- */
