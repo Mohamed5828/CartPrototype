@@ -1,63 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Comfy House</title>
     <!-- font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="fav-style.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="fav-style.css" />
+  </head>
 
-</head>
-
-<body>
+  <body>
     <!--Nav Bar-->
     <nav class="navbar">
-        <div class="menu-logo">
-
+      <div class="menu-logo"></div>
+      <div class="navbar-center">
+        <div class="option-btn">
+          <span class="option-icon nav-icon">
+            <i class="fas fa-bars"></i>
+          </span>
         </div>
-        <div class="navbar-center">
-            <div class="option-btn">
-                <span class="option-icon nav-icon">
-                    <i class="fas fa-bars"></i>
-                </span>
-            </div>
-            <div class="logo"><a href="/index.html"><img src="./images/logo.svg" alt="Store Logo"></a></div>
-            <div class="icons">
-                <div class="search-box">
-                    <input class="search-txt" type="text" name="" placeholder="Search For Product or Brand">
-                    <a href="#" class="search-btn"><i class="fas fa-search"></i></a>
-                </div>
-                <div class="favorite"><a href="#"><i class="fa fa-heart fa-lg" aria-hidden="true"></i></a></div>
-                <div >
-                    <button class="location"><i class="fa fa-map-marker fa-lg " aria-hidden="true"></i> Store</button>
-                </div>
-                <div class="cart-btn">
-                    <span class="nav-icon">
-                        <i class="fas fa-cart-plus"></i>
-                    </span>
-                    <div class="cart-items">0</div>
-                </div>
-            </div>
+        <div class="logo">
+          <a href="/index.html"
+            ><img src="./images/logo.svg" alt="Store Logo"
+          /></a>
         </div>
+        <div class="icons">
+          <div class="search-box">
+            <input
+              class="search-txt"
+              type="text"
+              name=""
+              placeholder="Search For Product or Brand"
+            />
+            <a href="#" class="search-btn"><i class="fas fa-search"></i></a>
+          </div>
+          <div class="favorite">
+            <a href="#"><i class="fa fa-heart fa-lg" aria-hidden="true"></i></a>
+          </div>
+          <div>
+            <button class="location">
+              <i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> Store
+            </button>
+          </div>
+          <div class="cart-btn">
+            <span class="nav-icon">
+              <i class="fas fa-cart-plus"></i>
+            </span>
+            <div class="cart-items">0</div>
+          </div>
+        </div>
+      </div>
     </nav>
     <!--End of Nav Bar-->
     <!-- search box & Location mediaQu -->
     <div class="search-box-sm">
-        <input class="search-txt-sm" type="text" name="" placeholder="Search For Product or Brand">
-        <a href="#" class="search-btn-sm"><i class="fas fa-search"></i></a>
+      <input
+        class="search-txt-sm"
+        type="text"
+        name=""
+        placeholder="Search For Product or Brand"
+      />
+      <a href="#" class="search-btn-sm"><i class="fas fa-search"></i></a>
     </div>
     <div class="location-sm">
-        <button><i class="fa fa-map fa-2x" aria-hidden="true"></i> Select Store</button>
+      <button>
+        <i class="fa fa-map fa-2x" aria-hidden="true"></i> Select Store
+      </button>
     </div>
     <!-- end of search box & Location mediaQu -->
-   <!-- Location -->
+    <!-- Location -->
     <div class="location-overlay">
       <div class="location-popup">
         <span class="close-location">
@@ -80,46 +100,41 @@
     <!-- end of location -->
     <!-- favourites -->
     <section class="favourite">
-
-        <h2 class="fav-heading">favourites</h2>
-        <!-- in case there are products in the fav -->
-        <div class="fav-container">
-            
-        </div>
-        <!-- in case of no products -->
-        <!-- <div class="no-fav hide-element">
-            <img src="./images/FavoriYok.svg" alt="" class="no-items">
+      <h2 class="fav-heading">favourites</h2>
+      <!-- in case there are products in the fav -->
+      <div class="fav-container"></div>
+      <!-- in case of no products -->
+      <div class="no-fav">
+        <!-- <img src="./images/FavoriYok.svg" alt="" class="no-items">
             <h4>There are no items in your wish list</h4>
             <p>You haven't added any items to your wish list yet; all you have to do is <br> click on the little heart icon on the items.</p>
-            <button>start shopping</button>
-        </div>
-    </section> -->
+            <button>start shopping</button> -->
+      </div>
+    </section>
     <!-- end of favourites -->
 
     <!--Cart-->
 
     <div class="cart-overlay">
-        <div class="cart">
-            <span class="close-cart">
-                <i class="fas fa-window-close">
-                </i>
-            </span>
-            <h2>Your Cart</h2>
-            <div class="cart-content">
-                <!--Cart item-->
+      <div class="cart">
+        <span class="close-cart">
+          <i class="fas fa-window-close"> </i>
+        </span>
+        <h2>Your Cart</h2>
+        <div class="cart-content">
+          <!--Cart item-->
 
-                <!-- <div class="cart-item">
+          <!-- <div class="cart-item">
                     
                 </div> -->
 
-                <!--End of Cart item-->
-
-            </div>
-            <div class="cart-footer">
-                <h3>Your Total: $ <span class="cart-total">0</span></h3>
-                <button class="clear-cart banner-btn">Clear Cart</button>
-            </div>
+          <!--End of Cart item-->
         </div>
+        <div class="cart-footer">
+          <h3>Your Total: $ <span class="cart-total">0</span></h3>
+          <button class="clear-cart banner-btn">Clear Cart</button>
+        </div>
+      </div>
     </div>
 
     <!--End of Cart-->
@@ -127,86 +142,89 @@
     <!--option-->
 
     <div class="option-overlay">
-        <div class="option">
-            <span class="close-option">
-                <i class="fas fa-window-close">
-                </i>
-            </span>
-            <div>
-                <ul class="option-items">
-                    <li><a class="active" href="index.html">Home</a></li>
-                    <li><a href="categories.html">Categories</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="about.html">About</a></li>
+      <div class="option">
+        <span class="close-option">
+          <i class="fas fa-window-close"> </i>
+        </span>
+        <div>
+          <ul class="option-items">
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+          <i class="fa fa-globe fa-lg" aria-hidden="true"
+            ><a href="language.JSON"></a
+          ></i>
+        </div>
+        <div class="option-content">
+          <!--option item-->
 
-                </ul>
-                <i class="fa fa-globe fa-lg" aria-hidden="true"><a href="language.JSON"></a></i>
-            </div>
-            <div class="option-content">
-                <!--option item-->
-
-                <!-- <div class="option-item">
+          <!-- <div class="option-item">
                         
                     </div> -->
 
-                <!--End of option item-->
-
-            </div>
-            <div class="option-footer">
-            </div>
+          <!--End of option item-->
         </div>
+        <div class="option-footer"></div>
+      </div>
     </div>
 
     <!--End of option-->
 
-
-
     <!--Footer-->
     <footer class="section-p1">
-        <div class="col">
-            <h4>Contact</h4>
-            <p><strong>Address:</strong> msmdalfsd</p>
-            <p><strong>Phone:</strong> msmdalfsd</p>
-            <p><strong>Working Hours:</strong> msmdalfsd</p>
-            <div class="follow">
-                <h4>Our Social Networks</h4>
-                <div class="icons">
-                    <a href="https://web.facebook.com/"><i class="fab fa-facebook"></i></a>
-                    <a href="https://twitter.com/?lang=en"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.pinterest.com/"><i class="fab fa-pinterest-p"></i></a>
-                    <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
+      <div class="col">
+        <h4>Contact</h4>
+        <p><strong>Address:</strong> msmdalfsd</p>
+        <p><strong>Phone:</strong> msmdalfsd</p>
+        <p><strong>Working Hours:</strong> msmdalfsd</p>
+        <div class="follow">
+          <h4>Our Social Networks</h4>
+          <div class="icons">
+            <a href="https://web.facebook.com/"
+              ><i class="fab fa-facebook"></i
+            ></a>
+            <a href="https://twitter.com/?lang=en"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="https://www.pinterest.com/"
+              ><i class="fab fa-pinterest-p"></i
+            ></a>
+            <a href="https://www.instagram.com/"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://www.youtube.com/"
+              ><i class="fab fa-youtube"></i
+            ></a>
+          </div>
         </div>
+      </div>
 
-        <div class="col">
-            <h4>Help</h4>
-            <a href="#">Frequently Asked Questions</a>
-            <a href="#">Delivery Information</a>
-            <a href="#">Arrange A Return</a>
-            <a href="#">Product Recall</a>
-            <a href="#">Site Map</a>
-            <a href="#">Complaints Process</a>
-            <a href="#">Contact Us</a>
-        </div>
+      <div class="col">
+        <h4>Help</h4>
+        <a href="#">Frequently Asked Questions</a>
+        <a href="#">Delivery Information</a>
+        <a href="#">Arrange A Return</a>
+        <a href="#">Product Recall</a>
+        <a href="#">Site Map</a>
+        <a href="#">Complaints Process</a>
+        <a href="#">Contact Us</a>
+      </div>
 
-        <div class="col">
-            <h4>About Us</h4>
-            <a href="#">About Us</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms & Conditions</a>
-            <a href="#">Contact Us</a>
-        </div>
-        <div class="copyright">
-        </div>
+      <div class="col">
+        <h4>About Us</h4>
+        <a href="#">About Us</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div class="copyright"></div>
     </footer>
 
     <!--End of Footer-->
 
     <script src="app.js"></script>
     <script src="fav-app.js"></script>
-
-</body>
-
+  </body>
 </html>

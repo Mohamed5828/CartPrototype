@@ -27,6 +27,7 @@ const favDetails = document.querySelector(".fav-product-info");
 const addFavBtn = document.querySelector(".fav-bag-btn");
 const moreBtn = document.querySelector(".fav-remove");
 const favContainerDOM = document.querySelector(".fav-container");
+const emptyFav = document.querySelector(".no-fav");
 
 let cart = [];
 let fav = [];
@@ -131,6 +132,21 @@ class UI {
       allProductsId += product.id;
     });
     favContainerDOM.innerHTML = favProducts;
+  }
+
+  displayNull() {
+    const div = document.createElement("div");
+    div.innerHTML = `
+    <img src="./images/FavoriYok.svg" alt="" class="no-items">
+    <h4>There are no items in your wish list</h4>
+    <p>You haven't added any items to your wish list yet; all you have to do is <br> click on the little heart icon on the items.</p>
+    <a href="index.html"><button>start shopping</button></a>
+    `;
+    emptyFav.appendChild(div);
+    emptyFav.classList.remove("hide-element");
+  }
+  hideNull() {
+    emptyFav.classList.add("hide-element");
   }
 
   getFavButtons() {
@@ -411,7 +427,12 @@ document.addEventListener("DOMContentLoaded", () => {
   products
     .getFavProducts()
     .then((favProduct) => {
-      ui.displayFavProducts(favProduct);
+      if (localStorage.getItem("favProducts").length > 2) {
+        ui.hideNull();
+        ui.displayFavProducts(favProduct);
+      } else {
+        ui.displayNull();
+      }
       Storage.saveFav(favProduct);
     })
     .then(() => {
