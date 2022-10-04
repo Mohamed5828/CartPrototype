@@ -126,7 +126,7 @@ body {
   opacity: 0.65;
   transform: var(--mainTransition);
 }
-.location button {
+.location {
   background: transparent;
   border: none;
   cursor: pointer;
@@ -197,6 +197,81 @@ body {
     display: none;
   }
 }
+/* --------------- Location ---------------- */
+.location-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: var(--mainTransition);
+  background: rgb(240, 157, 81, 0.5);
+  z-index: 3;
+  display: none;
+}
+.showLocation {
+  display: flex;
+}
+.location-popup {
+  display: flex;
+  z-index: 5;
+  background-color: var(--mainWhite);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 25rem;
+  height: 30rem;
+  border-radius: 50px;
+  justify-content: center;
+}
+.location-popup span {
+  position: absolute;
+  top: 4%;
+  left: 5%;
+}
+
+.location-popup h4 {
+  margin: 80px 20px;
+  display: block;
+}
+.country-selection {
+  display: block;
+  position: absolute;
+  top: 30%;
+}
+.country-selection select {
+  padding: 10px;
+  background-color: var(--mainGrey);
+  border: none;
+  border-radius: 5px;
+}
+
+.location-popup .location-confirm {
+  display: block;
+  margin: 20px;
+  position: absolute;
+  top: 60%;
+}
+
+@media screen and (max-width: 774px) {
+  .location-popup {
+    width: 20rem;
+    height: 30rem;
+  }
+  .location-popup h4 {
+    margin: 60px 20px 40px;
+  }
+  .location-popup .banner-btn {
+    padding: 1rem 2rem;
+  }
+  .country-selection select,
+  .country-selection option {
+    padding: 7px;
+  }
+}
+/* --------------- End of Location ---------------- */
+
 /* --------------- End of Navbar ---------------- */
 
 /* --------------- Hero ---------------- */
@@ -341,21 +416,32 @@ body {
   text-align: center;
 }
 
+.star-rating {
+  user-select: none;
+}
+
 .fa-star {
   margin: 10px 0px;
+  font-size: 1rem;
   color: var(--primaryColor);
+  border: none;
+  background-color: transparent;
+}
+.star-rating :hover {
+  cursor: pointer;
 }
 
 .fav-btn {
   position: absolute;
   bottom: 3%;
   right: 8%;
-  padding: 7px;
+  padding: 8px;
   border-radius: 50%;
   background-color: #cce7d0;
   color: whitesmoke;
   cursor: pointer;
   border: none;
+  line-height: normal;
 }
 .fav-btn :hover {
   opacity: 0.6;
@@ -501,7 +587,8 @@ body {
   }
 }
 
-.close-option {
+.close-option,
+.close-location {
   font-size: 1.7rem;
   cursor: pointer;
   position: relative;
@@ -550,6 +637,7 @@ body {
 
 .transparentBcg {
   visibility: visible;
+  display: flex;
 }
 
 @media screen and (min-width: 768px) {

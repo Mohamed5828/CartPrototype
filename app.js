@@ -7,12 +7,20 @@ const cartItems = document.querySelector(".cart-items");
 const cartTotal = document.querySelector(".cart-total");
 const cartContent = document.querySelector(".cart-content");
 const ProductsDOM = document.querySelector(".products-center");
+const copyRight = document.querySelector(".copyright");
 
 const optionBtn = document.querySelector(".option-btn");
 const closeOptionBtn = document.querySelector(".close-option");
 const optionDOM = document.querySelector(".option");
 const optionOverlay = document.querySelector(".option-overlay");
 const optionContent = document.querySelector(".option-content");
+
+const locationBtn = document.querySelector(".location");
+const closeLocationBtn = document.querySelector(".close-location");
+const locationSmallBtn = document.querySelector(".location-sm");
+const locationConfirm = document.querySelector(".location-confirm");
+const locationDOM = document.querySelector(".location-popup");
+const locationOverlay = document.querySelector(".location-overlay");
 
 const favImage = document.querySelector(".product-img");
 const favDetails = document.querySelector(".fav-product-info");
@@ -76,29 +84,27 @@ class UI {
                         <img src=./images/product-2.jpeg alt="Product" class="product-img product-img-1 face">
                         <img src=${product.image} alt="Product" class="product-img product-img-2 face">
                 </div>
-                <i class="fas fa-star"></i> 
-                <i class="fas fa-star"></i> 
-                <i class="fas fa-star"></i> 
-                <i class="fas fa-star"></i> 
-                <i class="fas fa-star"></i> 
+                <div class= "star-rating" data-id=${product.id}>
+                  <button class= "star fa-regular fa-star"></button>
+                  <button class= "star fa-regular fa-star"></button>
+                  <button class= "star fa-regular fa-star"></button>
+                  <button class= "star fa-regular fa-star"></button>
+                  <button class= "star fa-regular fa-star"></button>
+                </div>
                 <h3>${product.title}</h3>
                 <h4>$${product.price}</h4>
-                <button class="bag-btn" data-id=${product.id}>
-                        <i class="fa fa-shopping-cart">
-                            Add To Cart
-                        </i>
-                        </button>
-                        <button class= "fav-btn" data-id=${product.id}>
-                            <i class="fa fa-heart fa-lg" aria-hidden="true">
-                            </i>
-                        <button>
+                <button class="bag-btn fa fa-shopping-cart" data-id=${product.id}>
+                      Add To Cart
+                </button>
+                <button class= "fav-btn fa fa-heart fa-lg" data-id=${product.id}>
+                </button>
             </article>
             `;
       allProductsId += product.id;
     });
     ProductsDOM.innerHTML = result;
   }
-  ////////////////////////////////////////////////////////
+
   displayFavProducts(products) {
     let favProducts = "";
     products.forEach((product) => {
@@ -117,9 +123,7 @@ class UI {
                             <i class="fa fa-shopping-cart fa-lg">
                             </i>
                         </button>
-                        <button class="fav-remove" data-id=${product.id}>
-                            <i class="fa fa-trash fa-lg" aria-hidden="true">
-                            </i>
+                        <button class="fav-remove fa fa-trash fa-lg" data-id=${product.id}>
                         </button>
                     </div>
                 </div>
@@ -139,12 +143,8 @@ class UI {
         button.classList.add("fav-active");
       }
       button.addEventListener("click", (e) => {
-        if (
-          e.target.classList.contains("fav-active") ||
-          e.target.parentElement.classList.contains("fav-active")
-        ) {
+        if (e.target.classList.contains("fav-active")) {
           e.target.classList.remove("fav-active");
-          e.target.parentElement.classList.remove("fav-active");
           this.removeFavourite(id);
         } else {
           e.target.classList.add("fav-active");
@@ -158,11 +158,10 @@ class UI {
       });
     });
   }
-  ////////////////////////////////////////////////////////
+
   getRemoveButtons() {
     const removefavButtons = [...document.querySelectorAll(".fav-remove")];
     removeButtonsDOM = removefavButtons;
-    console.log(removeButtonsDOM);
     removefavButtons.forEach((button) => {
       let id = button.dataset.id;
       button.addEventListener("click", (e) => {
@@ -174,7 +173,7 @@ class UI {
       });
     });
   }
-  ///////////////////////////////////////////////////////
+
   getBagButtons() {
     const buttons = [...document.querySelectorAll(".bag-btn")];
     buttonsDOM = buttons;
@@ -237,10 +236,10 @@ class UI {
     cartContent.appendChild(div);
   }
 
-  // showLocation(){
-  //     locationOverlay.classList.add('transparentBcg')
-  //     locationDOM.classList.add('showCart')
-  // }
+  showLocation() {
+    locationOverlay.classList.add("transparentBcg");
+    locationDOM.classList.add("showLocation");
+  }
 
   showCart() {
     cartOverlay.classList.add("transparentBcg");
@@ -263,8 +262,10 @@ class UI {
     optionBtn.addEventListener("click", this.showOption);
     closeOptionBtn.addEventListener("click", this.hideOption);
 
-    // locationBtn.addEventListener('click',this.showLocation);
-    // closeLocationBtn.addEventListener('click', this.hideLocation)
+    locationBtn.addEventListener("click", this.showLocation);
+    locationSmallBtn.addEventListener("click", this.showLocation);
+    closeLocationBtn.addEventListener("click", this.hideLocation);
+    locationConfirm.addEventListener("click", this.hideLocation);
 
     close;
   }
@@ -283,10 +284,10 @@ class UI {
     optionDOM.classList.remove("showOption");
   }
 
-  //  hideLocation(){
-  //     locationOverlay.classList.remove('transparentBcg')
-  //     locationDOM.classList.remove('showLocation')
-  // }
+  hideLocation() {
+    locationOverlay.classList.remove("transparentBcg");
+    locationDOM.classList.remove("showLocation");
+  }
 
   cartLogic() {
     clearCartBtn.addEventListener("click", () => {
@@ -343,7 +344,7 @@ class UI {
     Storage.saveCart(cart);
     let button = this.getSingleButton(id);
     button.disabled = false;
-    button.innerHTML = `<i class="fas fa-shopping-cart"></i>Add to Cart`;
+    button.innerHTML = `Add to Cart`;
   }
   removeFavourite(id) {
     fav = fav.filter((item) => item.id !== id);
@@ -419,3 +420,8 @@ document.addEventListener("DOMContentLoaded", () => {
       ui.getRemoveButtons();
     });
 });
+
+(function getDate() {
+  let date = new Date();
+  copyRight.innerHTML = `<p>© ${date.getFullYear()}  blah blah Ltd. All rights reserved. </p> `;
+})();

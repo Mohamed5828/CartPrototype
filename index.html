@@ -26,7 +26,11 @@
             <i class="fas fa-bars"></i>
           </span>
         </div>
-        <div class="logo"><img src="./images/logo.svg" alt="Store Logo" /></div>
+        <div class="logo">
+          <a href="/index.html"
+            ><img src="./images/logo.svg" alt="Store Logo"
+          /></a>
+        </div>
         <div class="icons">
           <div class="search-box">
             <input
@@ -42,8 +46,8 @@
               ><i class="fa fa-heart fa-lg" aria-hidden="true"></i
             ></a>
           </div>
-          <div class="location">
-            <button>
+          <div>
+            <button class="location">
               <i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> Store
             </button>
           </div>
@@ -84,7 +88,27 @@
       </div>
     </header>
     <!--End of Hero-->
-
+    <!-- Location -->
+    <div class="location-overlay">
+      <div class="location-popup">
+        <span class="close-location">
+          <i class="fas fa-window-close close-location"> </i>
+        </span>
+        <h4>
+          Choose Your Country to Adjust our Products Based on Your Location
+        </h4>
+        <div class="country-selection">
+          <label for="country">Choose Country: </label>
+          <select name="country" id="country">
+            <option value="egypt">Egypt</option>
+            <option value="united state">US</option>
+            <option value="united kindom">UK</option>
+          </select>
+        </div>
+        <button class="location-confirm banner-btn">Confirm</button>
+      </div>
+    </div>
+    <!-- end of location -->
     <!--Products-->
 
     <section class="products">
@@ -319,9 +343,7 @@
         <a href="#">Terms & Conditions</a>
         <a href="#">Contact Us</a>
       </div>
-      <div class="copyright">
-        <p>© 2022 blah blah Ltd. All rights reserved.</p>
-      </div>
+      <div class="copyright"></div>
     </footer>
 
     <!--End of Footer-->

@@ -28,15 +28,15 @@
                     <i class="fas fa-bars"></i>
                 </span>
             </div>
-            <div class="logo"><img src="./images/logo.svg" alt="Store Logo"></div>
+            <div class="logo"><a href="/index.html"><img src="./images/logo.svg" alt="Store Logo"></a></div>
             <div class="icons">
                 <div class="search-box">
                     <input class="search-txt" type="text" name="" placeholder="Search For Product or Brand">
                     <a href="#" class="search-btn"><i class="fas fa-search"></i></a>
                 </div>
                 <div class="favorite"><a href="#"><i class="fa fa-heart fa-lg" aria-hidden="true"></i></a></div>
-                <div class="location">
-                    <button><i class="fa fa-map-marker fa-lg " aria-hidden="true"></i> Store</button>
+                <div >
+                    <button class="location"><i class="fa fa-map-marker fa-lg " aria-hidden="true"></i> Store</button>
                 </div>
                 <div class="cart-btn">
                     <span class="nav-icon">
@@ -48,6 +48,7 @@
         </div>
     </nav>
     <!--End of Nav Bar-->
+    <!-- search box & Location mediaQu -->
     <div class="search-box-sm">
         <input class="search-txt-sm" type="text" name="" placeholder="Search For Product or Brand">
         <a href="#" class="search-btn-sm"><i class="fas fa-search"></i></a>
@@ -55,7 +56,28 @@
     <div class="location-sm">
         <button><i class="fa fa-map fa-2x" aria-hidden="true"></i> Select Store</button>
     </div>
-
+    <!-- end of search box & Location mediaQu -->
+   <!-- Location -->
+    <div class="location-overlay">
+      <div class="location-popup">
+        <span class="close-location">
+          <i class="fas fa-window-close close-location"> </i>
+        </span>
+        <h4>
+          Choose Your Country to Adjust our Products Based on Your Location
+        </h4>
+        <div class="country-selection">
+          <label for="country">Choose Country: </label>
+          <select name="country" id="country">
+            <option value="egypt">Egypt</option>
+            <option value="united state">US</option>
+            <option value="united kindom">UK</option>
+          </select>
+        </div>
+        <button class="location-confirm banner-btn">Confirm</button>
+      </div>
+    </div>
+    <!-- end of location -->
     <!-- favourites -->
     <section class="favourite">
 
@@ -177,13 +199,10 @@
             <a href="#">Contact Us</a>
         </div>
         <div class="copyright">
-            <p>© 2022 blah blah Ltd. All rights reserved.</p>
         </div>
     </footer>
 
     <!--End of Footer-->
-
-
 
     <script src="app.js"></script>
     <script src="fav-app.js"></script>
